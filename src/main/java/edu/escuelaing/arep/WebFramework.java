@@ -6,12 +6,21 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.BiFunction;
 
+/**
+ * Framework web sencillo que permite manejar peticiones HTTP GET y servir archivos estáticos.
+ * Permite registrar rutas para manejar peticiones y especificar la ubicación de los archivos estáticos.
+ */
 public class WebFramework {
-    private static String staticFolder = "src/main/resources/static"; // Ruta por defecto
+
+    // Ruta por defecto para los archivos estáticos
+    private static String staticFolder = "src/main/resources/static";
+
+    // Mapa que almacena las rutas GET registradas y sus manejadores
     private static final Map<String, BiFunction<Request, Response, String>> getRoutes = new HashMap<>();
 
     /**
      * Permite configurar la ubicación de los archivos estáticos.
+     *
      * @param folder Ruta donde se encuentran los archivos estáticos.
      */
     public static void staticfiles(String folder) {
@@ -20,7 +29,8 @@ public class WebFramework {
 
     /**
      * Registra un nuevo endpoint GET en el framework.
-     * @param path Ruta de la API.
+     *
+     * @param path    Ruta de la API.
      * @param handler Función lambda que maneja la petición.
      */
     public static void get(String path, BiFunction<Request, Response, String> handler) {
@@ -28,7 +38,15 @@ public class WebFramework {
     }
 
     /**
-     * Maneja las peticiones entrantes.
+     * Maneja las peticiones entrantes según el metodo y recurso solicitado.
+     * Si la petición es un GET y la ruta está registrada, ejecuta el manejador correspondiente.
+     * Si no, intenta servir un archivo estático.
+     *
+     * @param method      El metodo HTTP (por ejemplo, "GET").
+     * @param resource    La ruta del recurso solicitado.
+     * @param queryParams Parámetros de consulta de la URL.
+     * @param out         El flujo de salida donde se enviará la respuesta.
+     * @throws IOException Si ocurre un error al escribir en el flujo de salida.
      */
     public static void handleRequest(String method, String resource, Map<String, String> queryParams, OutputStream out) throws IOException {
         if ("GET".equals(method) && getRoutes.containsKey(resource)) {
@@ -47,6 +65,11 @@ public class WebFramework {
         }
     }
 
+    /**
+     * Obtiene la ruta de la carpeta de archivos estáticos configurada.
+     *
+     * @return La ruta de la carpeta de archivos estáticos.
+     */
     public static String getStaticFolder() {
         return staticFolder;
     }

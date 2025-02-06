@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
         fetch("/addBook", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ bookTitle, bookAuthor })
+            body: JSON.stringify({ title: bookTitle, author: bookAuthor })
         })
         .then(response => response.text())
         .then(data => {
