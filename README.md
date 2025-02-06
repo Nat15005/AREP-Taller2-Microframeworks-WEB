@@ -20,11 +20,11 @@ Follow these steps to get the development environment running:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/Nat15005/AREP-Taller-1.git
+   git clone https://github.com/Nat15005/AREP-Taller2-Microframeworks-WEB.git
    ```
 2. **Navigate to the project folder:**
    ```bash
-   cd AREP-Taller-1
+   cd AREP-Taller2-Microframeworks-WEB
    ```
 3. **Build the project using Maven:**
    ```bash
