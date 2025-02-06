@@ -94,7 +94,7 @@ public class RequestHandler {
     private static void serveBooksJson(OutputStream out) throws IOException {
         StringBuilder json = new StringBuilder("{ \"books\": [");
         for (int i = 0; i < books.size(); i++) {
-            json.append(books.get(i).toString());  
+            json.append(books.get(i).toString());
             if (i < books.size() - 1) json.append(", ");
         }
         json.append("] }");

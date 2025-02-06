@@ -57,15 +57,34 @@ class RequestHandlerTest {
     }
 
     @Test
-    void testBadRequest() throws IOException {
-        String invalidRequest = "INVALID REQUEST";  // Solicitud malformada
-        MockSocket mockSocket = new MockSocket(invalidRequest);
-        RequestHandler.handleClient(mockSocket);  // Procesar la solicitud
+    void testGetNonExistentRoute() throws IOException {
+        // Simular una solicitud GET a una ruta no definida
+        Socket mockSocket = new MockSocket("GET /nonexistent HTTP/1.1\r\n\r\n");
+        RequestHandler.handleClient(mockSocket);
 
-        // Verificar que la respuesta sea un 400 Bad Request
-        String response = mockSocket.getResponse();
-        assertTrue(response.contains("HTTP/1.1 400 Bad Request"));
+        // Verificar que la respuesta sea 404 Not Found
+        MockSocket mockClient = (MockSocket) mockSocket;
+        String response = mockClient.getResponse();
+
+        assertTrue(response.contains("HTTP/1.1 404 Not Found"));
     }
+
+    @Test
+    void testDeleteNonExistentBook() throws IOException {
+        // Simular una solicitud DELETE a /deleteBook para un libro que no existe
+        String deleteJson = "{\"title\":\"Nonexistent Book\"}";
+        Socket deleteSocket = new MockSocket("DELETE /deleteBook HTTP/1.1\r\nContent-Type: application/json\r\nContent-Length: " + deleteJson.length() + "\r\n\r\n" + deleteJson);
+        RequestHandler.handleClient(deleteSocket);
+
+        // Verificar la respuesta después de intentar eliminar un libro que no existe
+        MockSocket mockClient = (MockSocket) deleteSocket;
+        String response = mockClient.getResponse();
+
+        assertTrue(response.contains("Libro no encontrado"), "Debería indicar que el libro no fue encontrado");
+    }
+
+
+
 
 
 

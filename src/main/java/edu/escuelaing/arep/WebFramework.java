@@ -16,7 +16,7 @@ public class WebFramework {
     private static String staticFolder = "src/main/resources/static";
 
     // Mapa que almacena las rutas GET registradas y sus manejadores
-    private static final Map<String, BiFunction<Request, Response, String>> getRoutes = new HashMap<>();
+    static final Map<String, BiFunction<Request, Response, String>> getRoutes = new HashMap<>();
 
     /**
      * Permite configurar la ubicación de los archivos estáticos.
