@@ -1,6 +1,8 @@
-# Book Management Server
+# Web Framework Development for REST Services and Static File Management
 
-This project implements a simple HTTP server in Java that handles multiple client requests sequentially. The server is capable of reading files from the local disk and serving any requested files, including HTML pages, JavaScript, CSS, and images. It features a basic HTTP server architecture, which processes client requests and sends responses. Additionally, the project incorporates asynchronous communication through REST services in the backend. As a demonstration of the server's functionality, a web application was developed for managing books, allowing users to add, delete, and list books.
+This framework allows developers to define REST services using lambda functions, manage query values from requests, and specify the location of static files. The goal is to provide a robust and scalable framework for building web applications with backend services and static file handling.
+
+As a demonstration of the server's functionality, a simple web application is included to handle books. It allows users to add, delete, and list books using REST services.
 
 ## Getting Started
 
@@ -10,7 +12,7 @@ These instructions will guide you to get a copy of the project up and running on
 
 To run this project, you need the following software installed on your local machine:
 
-- **Java 11+**: The project is built using Java. 
+- **Java 21+**: The project is built using Java. 
 - **Maven**: Used for dependency management.
 - **IDE (optional)**: An Integrated Development Environment like IntelliJ IDEA can be used for development.
 
@@ -55,11 +57,35 @@ You should see the main page of the application.
 
 ![image](https://github.com/user-attachments/assets/f2382c33-b777-4073-8d8f-9a355a512263)
 
+### Example of GET REST Services
+To test the functionality of the new REST framework, try the following endpoints in your browser:
+
+- GET request with query parameters:
+  
+```  
+http://localhost:35000/App/hello?name=Natalia
+```
+
+This will return: Hello Natalia
+
+![image](https://github.com/user-attachments/assets/1c2664e9-ae19-40e6-baf2-c772b0077842)
+
+
+- GET request with predefined response:
+  
+```  
+http://localhost:35000/App/pi
+```
+This will return the value of Pi: 3.141592653589793
+
+![image](https://github.com/user-attachments/assets/84b2226c-674c-4105-968f-376323dffbe9)
 
 
 ### Running Tests
 
 To run the unit tests, use the following command:
+
+
 
 ```bash
 mvn test
