@@ -114,10 +114,9 @@ Once this change is made, the server will search for static files in the prueba 
 http://localhost:35000/index.html
 
 ```
-
+This will serve the index.html file from the prueba folder.
 ![image](https://github.com/user-attachments/assets/ef2cf31a-8dd1-4126-9a53-0f6430a8db91)
 
-This will serve the index.html file from the prueba folder.
 
 ### Running Tests
 
@@ -134,26 +133,30 @@ mvn test
 
 ```
 AREP-Taller-1
-│── src
-│   ├── main
-│   │   ├── java
-│   │   │   └── edu.escuelaing.arep
-│   │   │       ├── Book.java
-│   │   │       ├── FileHandler.java
-│   │   │       ├── HttpServer.java
-│   │   │       ├── RequestHandler.java
-│   │   ├── resources/static
-│   │       ├── fondo.jpg
-│   │       ├── index.css
-│   │       ├── index.html
-│   │       ├── index.js
-│   │       ├── pato.png
-│   ├── test
-│       ├── java/edu.escuelaing.arep
-│       │   ├── BookTest.java
-│       │   ├── FileHandlerTest.java
-│       │   ├── MockSocket.java
-│       │   ├── RequestHandlerTest.java
+├───src
+│   ├───main
+│   │   ├───java
+│   │   │   └───edu
+│   │   │       └───escuelaing
+│   │   │           └───arep
+│   │   │                   Book.java
+│   │   │                   FileHandler.java
+│   │   │                   HttpServer.java
+│   │   │                   Request.java
+│   │   │                   RequestHandler.java
+│   │   │                   Response.java
+│   │   │                   WebFramework.java
+│   │   │
+│   │   └───resources
+│   │       ├───prueba
+│   │       │       index.html
+│   │       │
+│   │       └───static
+│   │               fondo.jpg
+│   │               index.css
+│   │               index.html
+│   │               index.js
+│   │               pato.png
 ```
 
 ### Technologies Used
