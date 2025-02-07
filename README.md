@@ -127,7 +127,52 @@ mvn test
 ```
 ![image](https://github.com/user-attachments/assets/cc10c5a0-3515-4140-9c7c-01e8b8f2c805)
 
+### BookTest
+- testBookCreation: Verifies that a Book object is created correctly with the specified title and author.
+- testToString: Checks that the toString method of the Book class returns the expected JSON representation of the book.
 
+### FileHandlerTest
+
+- testServeExistingFile: Tests that an existing file is served correctly, returning a 200 OK response along with the file content.
+- testServeNonExistingFile: Verifies that a request for a non-existent file returns a 404 Not Found response.
+- testGetContentType: Confirms that the correct MIME type is returned for various file extensions.
+
+### HttpServerTest
+
+- testHelloEndpoint: Tests the /App/hello endpoint to ensure it responds with a 200 OK status and the correct greeting message.
+- testPiEndpoint: Verifies that the /App/pi endpoint returns a 200 OK status and the value of π.
+- testStaticFile: Checks that a static file (e.g., index.html) can be accessed and returns a 200 OK status.
+- testNonExistentRoute: Tests that a request to a non-existent route returns a 404 Not Found status.
+
+### RequestHandlerTest
+- testGetBooks: Simulates a GET request to /getBooks and verifies that the response contains the expected JSON format.
+- testPostAddBook: Tests a POST request to /addBook to ensure that a book is added correctly and the response confirms the addition.
+- testDeleteBook: Verifies that a DELETE request to /deleteBook successfully removes a book and returns the appropriate response.
+- testGetNonExistentRoute: Checks that a GET request to a non-existent route returns a 404 Not Found response.
+- testDeleteNonExistentBook: Tests that attempting to delete a non-existent book returns a "Book not found" message.
+
+### RequestTest
+
+- testGetValues: Verifies that the getValues method correctly retrieves the value of a query parameter (in this case, "name") from the request.
+- testGetValuesNotFound: Tests that the getValues method returns an empty string when a non-existent query parameter (in this case, "age") is requested.
+
+### ResponseTest
+
+- testDefaultContentType: Verifies that the default content type of a Response object is "text/plain".
+- testSetContentType: Tests that setting a new content type updates the response correctly.
+- testSetContentTypeToNull: Checks that setting the content type to null behaves as expected.
+- testSetContentTypeToEmptyString: Verifies that setting the content type to an empty string updates the response accordingly.
+
+### WebFrameworkTest
+
+- testStaticFilesConfiguration: Tests the configuration of the static files directory to ensure it can be set and retrieved correctly.
+- testGetRouteRegistration: Verifies that a GET route can be registered successfully.
+- testHandleGetRequest: Simulates a GET request to a registered route and checks that the response is correct.
+- testHandleStaticFileRequest: Tests that a request for a static file returns the expected response.
+- testHandleNonExistentRoute: Verifies that a request to a non-existent route returns a 404 Not Found response.
+
+### MockSocket
+This class is not directly tested but is used in other tests to simulate a network socket for handling HTTP requests without actual network communication.
 
 ### Project Structure
 
@@ -159,22 +204,22 @@ AREP-Taller-1
 │   │               pato.png
 ```
 
-📚 Book:
+#### 📚 Book:
 Represents a book with a title and an author. Provides methods to access book details and return a JSON representation.
 
-📂 FileHandler:
+#### 📂 FileHandler:
 Handles file reading and serving in the HTTP server. Serves static files from a configured directory and determines MIME types.
 
-🌐 HttpServer:
+#### 🌐 HttpServer:
 Implements an HTTP server listening on port 35000. Manages REST requests and serves static files.
 
-📩 Request:
+#### 📩 Request:
 Represents an HTTP request, storing query parameters and providing methods to retrieve their values.
 
-🔄 RequestHandler:
+#### 🔄 RequestHandler:
 Manages client HTTP requests, including handling books (GET, POST, DELETE) and serving static files.
 
-📤 Response:
+#### 📤 Response:
 Represents an HTTP response, allowing content type configuration.
 
 ### Technologies Used
