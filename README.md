@@ -80,17 +80,55 @@ This will return the value of Pi: 3.141592653589793
 
 ![image](https://github.com/user-attachments/assets/84b2226c-674c-4105-968f-376323dffbe9)
 
+### Static File Location Specification
+
+The framework includes a staticfiles() method that allows developers to define where the static files (like images, CSS, and HTML) are located. By default, this method looks for static files in the /static folder. 
+
+Once the staticfiles() method is configured, you can easily access static resources like CSS, PNG, and other files by simply making a request to the corresponding URL. For example, a request to:
+
+```  
+http://localhost:35000/index.css
+
+```
+![image](https://github.com/user-attachments/assets/b2592241-c83d-42f6-9443-05fb27035a8c)
+
+This will return the index.css file, and:
+
+```  
+http://localhost:35000/pato.png
+
+```
+This will serve the pato.png image from the static folder.
+
+![image](https://github.com/user-attachments/assets/d32c91ef-8457-48fc-8226-ef4a9f60f52a)
+
+#### Changing the Static File Location
+
+You can change where the framework looks for static files by configuring the staticfiles() method to point to a different folder. For example, if you have a test folder called prueba, you can update the configuration as follows:
+
+![image](https://github.com/user-attachments/assets/45e7297e-4c58-4ad4-abf2-b48dcd5f9912)
+
+Once this change is made, the server will search for static files in the prueba directory. This means that any requests for static resources will now be handled by files located inside prueba. For example:
+
+```  
+http://localhost:35000/index.html
+
+```
+
+![image](https://github.com/user-attachments/assets/ef2cf31a-8dd1-4126-9a53-0f6430a8db91)
+
+This will serve the index.html file from the prueba folder.
 
 ### Running Tests
 
 To run the unit tests, use the following command:
 
-
-
 ```bash
 mvn test
 ```
-![image](https://github.com/user-attachments/assets/c2143d97-8e98-4700-8a12-555f806fd48c)
+![image](https://github.com/user-attachments/assets/cc10c5a0-3515-4140-9c7c-01e8b8f2c805)
+
+
 
 ### Project Structure
 
