@@ -159,6 +159,24 @@ AREP-Taller-1
 │   │               pato.png
 ```
 
+📚 Book:
+Represents a book with a title and an author. Provides methods to access book details and return a JSON representation.
+
+📂 FileHandler:
+Handles file reading and serving in the HTTP server. Serves static files from a configured directory and determines MIME types.
+
+🌐 HttpServer:
+Implements an HTTP server listening on port 35000. Manages REST requests and serves static files.
+
+📩 Request:
+Represents an HTTP request, storing query parameters and providing methods to retrieve their values.
+
+🔄 RequestHandler:
+Manages client HTTP requests, including handling books (GET, POST, DELETE) and serving static files.
+
+📤 Response:
+Represents an HTTP response, allowing content type configuration.
+
 ### Technologies Used
 
 - **Java** - Main programming language
